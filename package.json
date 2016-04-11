@@ -1,0 +1,27 @@
+{
+  "name": "nuclear-github-explorer",
+  "version": "1.0.0",
+  "description": "A simple github explorer made with NuclearJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrei-cacio/nuclear-github-explorer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrei-cacio/nuclear-github-explorer/issues"
+  },
+  "homepage": "https://github.com/andrei-cacio/nuclear-github-explorer#readme",
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "nuclear-js": "^1.3.0",
+    "react": "^15.0.1",
+    "react-essence": "^1.0.10",
+    "webpack": "^1.12.15"
+  }
+}
