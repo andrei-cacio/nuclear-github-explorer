@@ -1,1 +1,1 @@
-export { reactor } from './reactor';
+export { default as reactor } from './reactor';

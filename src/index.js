@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './components/login';
-import reactor from './modules/core/reactor';
+import { reactor } from './modules/core';
 import UserStore from './modules/user-management/stores/user';
 import './style.less';
 

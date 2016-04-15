@@ -1,6 +1,3 @@
-import keyMirror from 'keymirror';
-
-export default keyMirror({
-    LOG_IN: null,
-    AUTHENTICATED: null
-});
+export const AUTHENTICATED = 'AUTHENTICATED';
+export const AUTHENTICATE_FAILED = 'AUTHENTICATE_FAILED';
+export const AUTHENTICATING = 'AUTHENTICATING';
