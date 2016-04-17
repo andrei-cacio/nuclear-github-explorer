@@ -30,8 +30,9 @@ function failAuth(state, { reason, isTalkingToServer }) {
     return state.update('status', status => status.merge(failedStatus));
 }
 
-function login(state, info) {
-    const userInfo = state.merge(info);
-
-    return userInfo.update('status', status => status.set('isLoggedIn'), true);
+function login(state, { info, isTalkingToServer }) {
+    return state
+        .update('status', status => status.set('isLoggedIn', true))
+        .update('status', status => status.set('isTalkingToServer', isTalkingToServer))
+        .update('info', userInfo => userInfo.merge(toImmutable(info)));
 }

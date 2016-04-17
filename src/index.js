@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './components/login';
+import App from './components/app';
 import { reactor } from './modules/core';
 import UserStore from './modules/user-management/stores/user';
 import './style.less';
@@ -11,4 +11,4 @@ reactor.registerStores({
 
 window.reactor = reactor;
 
-ReactDOM.render(<Login />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
