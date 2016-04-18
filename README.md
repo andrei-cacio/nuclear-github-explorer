@@ -9,4 +9,4 @@ A simple github explorer made with NuclearJS
 
 `npm start`
 
-No you can access [localhost](http://localhost:8080)
+Now you can access [localhost](http://localhost:8080)
