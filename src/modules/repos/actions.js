@@ -1,7 +1,7 @@
 import { API } from '../core/constants';
 import * as getters from '../user-management/getters';
 import { reactor } from '../core';
-import { RECEIVE_REPOS } from './action-types';
+import { RECEIVE_REPOS, SEARCHING } from './action-types';
 
 export default {
     fetchRepos() {
@@ -10,5 +10,8 @@ export default {
         fetch(API.GITHUB.repos(userInfo.username))
             .then(res => res.json())
             .then(res => reactor.dispatch(RECEIVE_REPOS, res));
+    },
+    search(query) {
+        reactor.dispatch(SEARCHING, query);
     }
 };

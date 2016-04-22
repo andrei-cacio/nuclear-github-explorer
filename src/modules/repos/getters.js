@@ -1,11 +1,25 @@
 export const reposList = [
-    ['repos'],
-    (repos) => repos.map(repo => {
+    ['repos', 'all'],
+    (all) => all.map(repo => {
         return {
             name: repo.get('name'),
             language: repo.get('language'),
             url: repo.get('url'),
-            id: repo.get('id')
+            id: repo.get('id'),
+            description: repo.get('description')
+        }
+    })
+];
+
+export const searchResults = [
+    ['repos', 'searchResults'],
+    (results) => results.map(repo => {
+        return {
+            name: repo.get('name'),
+            language: repo.get('language'),
+            url: repo.get('url'),
+            id: repo.get('id'),
+            description: repo.get('description')
         }
     })
 ];

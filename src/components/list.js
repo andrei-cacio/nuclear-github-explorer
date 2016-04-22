@@ -32,7 +32,7 @@ const UIList = React.createClass({
                         <UIListItem
                             key={item.id}
                             primaryText={item.name}
-                            secondText={item.language}
+                            secondText={item.description}
                             url={item.url} />)
                     }
                 </List>
