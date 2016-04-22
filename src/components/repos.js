@@ -1,6 +1,7 @@
 import React from 'react';
 import { reactor } from '../modules/core';
-import * as getters from '../modules/user-management/getters';
+import * as userGetters from '../modules/user-management/getters';
+import * as repoGetters from '../modules/repos/getters';
 import Card from 'material-ui/lib/card/card';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardTitle from 'material-ui/lib/card/card-title';
@@ -12,7 +13,8 @@ const Repos = React.createClass({
     mixins: [reactor.ReactMixin],
     getDataBindings: function() {
         return {
-            info: getters.userInfo
+            info: userGetters.userInfo,
+            repos: repoGetters.reposList
         }
     },
     componentWillMount() {
@@ -28,7 +30,7 @@ const Repos = React.createClass({
                 />
                 <CardTitle title="Github Explorer" />
                 <CardText>
-                    <List />
+                    <List items={this.state.repos} />
                 </CardText>
             </Card>
         );
