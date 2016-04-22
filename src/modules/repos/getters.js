@@ -4,7 +4,8 @@ export const reposList = [
         return {
             name: repo.get('name'),
             language: repo.get('language'),
-            url: repo.get('url')
+            url: repo.get('url'),
+            id: repo.get('id')
         }
     })
 ];

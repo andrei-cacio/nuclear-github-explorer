@@ -29,6 +29,7 @@
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
     "material-ui": "^0.15.0-alpha.2",
+    "nuclear-js-react-addons": "^0.4.0",
     "style": "0.0.3",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.15",

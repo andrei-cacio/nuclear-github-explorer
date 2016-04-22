@@ -5,7 +5,7 @@ import TextField from '../../node_modules/material-ui/lib/text-field';
 import RaisedButton from '../../node_modules/material-ui/lib/raised-button';
 import CircularProgress from '../../node_modules/material-ui/lib/circular-progress';
 import ErrorText from './error-text';
-import { reactor } from '../modules/core';
+import { connect } from 'nuclear-js-react-addons';
 import * as getters from '../modules/user-management/getters';
 
 const style = {
@@ -27,36 +27,44 @@ const style = {
     }
 };
 
-const Login = React.createClass({
-    mixins: [reactor.ReactMixin],
-    getDataBindings: function() {
-        return {
-            isLoading: getters.isTalkingToServer,
-            authFailedReason: getters.authFailedReason
-        };
-    },
-    login: function() {
+class Login extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    login() {
         actions.authenticate(this.usernameInput.getValue(), this.passInput.getValue());
-    },
-    render: function() {
+    }
+
+    render() {
+        const { isLoading, authFailedReason } = this.props;
         return (
             <Paper style={style.paper} zDepts={2}>
                 <img style={style.logo} width="200" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" />
-                <TextField ref={(i) => this.usernameInput = i} value={this.state.username} hintText="Username" />
-                <TextField ref={(i) => this.passInput = i} value={this.state.password} type="password" hintText="Password" />
+                <TextField ref={(i) => this.usernameInput = i} hintText="Username" />
+                <TextField ref={(i) => this.passInput = i} type="password" hintText="Password" />
                 {
-                    this.state.isLoading ? <CircularProgress /> :
+                    isLoading ? <CircularProgress /> :
                         <RaisedButton onMouseUp={this.login.bind(this)}
                                       label="Login"
                                       style={style.button}
                         />
                 }
                 {
-                    this.state.authFailedReason ? <ErrorText message={this.state.authFailedReason} /> : ''
+                    authFailedReason ? <ErrorText message={authFailedReason} /> : ''
                 }
             </Paper>
         );
     }
-});
+}
 
-export default Login;
+function mapStateToProps(props) {
+    return {
+        isLoading: getters.isTalkingToServer,
+        authFailedReason: getters.authFailedReason
+    }
+}
+
+const ConnectedLogin = connect(mapStateToProps)(Login);
+
+export default ConnectedLogin;

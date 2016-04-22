@@ -30,6 +30,7 @@ const UIList = React.createClass({
                 <List>
                     { this.props.items.map(item =>
                         <UIListItem
+                            key={item.id}
                             primaryText={item.name}
                             secondText={item.language}
                             url={item.url} />)

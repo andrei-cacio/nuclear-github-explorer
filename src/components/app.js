@@ -3,19 +3,25 @@ import Login from './login';
 import Repos from './repos';
 import { reactor } from '../modules/core';
 import * as getters from '../modules/user-management/getters';
+import { Provider, connect } from 'nuclear-js-react-addons';
 
-const App = React.createClass({
-    mixins: [reactor.ReactMixin],
-    getDataBindings: function() {
-        return {
-            isLoggedIn: getters.isLoggedIn
-        }
-    },
-    render: function() {
-        return (
-            this.state.isLoggedIn ? <Repos /> : <Login />
-        )
+class App extends Component {
+    constructor(props) {
+        super(props);
     }
-});
 
-export default App;
+    render() {
+        const { isLoggedIn } = this.props;
+        return isLoggedIn ? <Repos /> : <Login />;
+    }
+}
+
+function mapStateToProps(props) {
+    return {
+        isLoggedIn: getters.isLoggedIn
+    }
+}
+
+const ConnectedApp = connect(mapStateToProps)(App);
+
+export default ConnectedApp;
