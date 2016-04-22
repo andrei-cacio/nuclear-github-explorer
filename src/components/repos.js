@@ -31,7 +31,7 @@ class Repos extends Component {
                 <CardTitle title="Github Explorer" />
                 <Search/>
                 <CardText>
-                    <List items={repos} />
+                    <List items={results.size ? results : repos} />
                 </CardText>
             </Card>
         );
@@ -41,7 +41,8 @@ class Repos extends Component {
 function mapStateToProps() {
     return {
         info: userGetters.userInfo,
-        repos: repoGetters.searchResults
+        repos: repoGetters.reposList,
+        results: repoGetters.searchResults
     }
 }
 
