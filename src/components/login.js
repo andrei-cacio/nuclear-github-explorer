@@ -8,6 +8,8 @@ import ErrorText from './error-text';
 import { connect } from 'nuclear-js-react-addons';
 import * as getters from '../modules/user-management/getters';
 
+const ENTER_KEY = 13;
+
 const style = {
     paper: {
         height: 380,
@@ -36,13 +38,19 @@ class Login extends Component {
         actions.authenticate(this.usernameInput.getValue(), this.passInput.getValue());
     }
 
+    handleKeyPress(e) {
+        if (e.charCode === ENTER_KEY) {
+            this.login();
+        }
+    }
+
     render() {
         const { isLoading, authFailedReason } = this.props;
         return (
             <Paper style={style.paper} zDepts={2}>
                 <img style={style.logo} width="200" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" />
-                <TextField ref={(i) => this.usernameInput = i} hintText="Username" />
-                <TextField ref={(i) => this.passInput = i} type="password" hintText="Password" />
+                <TextField onKeyPress={this.handleKeyPress.bind(this)} ref={(i) => this.usernameInput = i} hintText="Username" />
+                <TextField onKeyPress={this.handleKeyPress.bind(this)} ref={(i) => this.passInput = i} type="password" hintText="Password" />
                 {
                     isLoading ? <CircularProgress /> :
                         <RaisedButton onMouseUp={this.login.bind(this)}
