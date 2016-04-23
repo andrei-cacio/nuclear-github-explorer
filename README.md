@@ -1,6 +1,10 @@
 # nuclear-github-explorer
 A simple github explorer made with NuclearJS
 
+## Demo
+
+You can checkout it out [here](https://andreicacio.com/demos/nuclear-github/)
+
 ## Installation
 
 `npm install && npm install -g webpack`
