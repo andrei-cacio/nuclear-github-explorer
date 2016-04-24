@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Login from './login';
-import Repos from './repos';
+import Repos from './repos-list';
 import { reactor } from '../modules/core';
 import * as getters from '../modules/user-management/getters';
 import { Provider, connect } from 'nuclear-js-react-addons';

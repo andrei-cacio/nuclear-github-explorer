@@ -16,8 +16,7 @@ export default Store({
 });
 
 function handleRepos(state, fetchedRepos) {
-    return state
-        .update('all', all => all.merge(toImmutable(fetchedRepos)));
+    return state.update('all', all => all.merge(toImmutable(fetchedRepos)));
 }
 
 function handleSearch(state, query) {
