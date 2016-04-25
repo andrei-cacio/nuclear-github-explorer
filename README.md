@@ -7,7 +7,7 @@ A simple github explorer made with NuclearJS
 
 You can checkout it out [here](https://andreicacio.com/demos/nuclear-github/)
 
-*INFO: The authentication with GitHub is made with* ***basic auth*** *so no credentials are stored. Also, the demo site is also secured via HTTPS, in case you want to try it out.*
+*INFO: The authentication with GitHub is made with* ***basic auth*** *so no credentials are stored. Moreover, the demo site is secured via HTTPS, in case you want to try it out.*
 
 ## Installation
 
