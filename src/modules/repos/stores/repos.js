@@ -5,7 +5,10 @@ export default Store({
    getInitialState() {
        return toImmutable({
            all: [],
-           searchResults: []
+           search: {
+               query: '',
+               results: []
+           }
        });
    },
 
@@ -20,8 +23,12 @@ function handleRepos(state, fetchedRepos) {
 }
 
 function handleSearch(state, query) {
-    return state.update('searchResults', () => {
-        const nameRegex = new RegExp(query, 'g');
-        return state.get('all').filter(repo => nameRegex.test(repo.get('name')));
+    return state.update('search', (search) => {
+        search
+            .update('query', query => query)
+            .update('results', () => {
+                const nameRegex = new RegExp(query, 'g');
+                return state.get('all').filter(repo => nameRegex.test(repo.get('name')));
+            });
     });
 }
