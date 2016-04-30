@@ -12,9 +12,8 @@ export const reposList = [
 ];
 
 export const searchResults = [
-    ['repos', 'search'],
-    ['results'],
-    (results) => results.map(repo => {
+    ['repos', 'search', 'results'],
+    results => results.map(repo => {
         return {
             name: repo.get('name'),
             language: repo.get('language'),
