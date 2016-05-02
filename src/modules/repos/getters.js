@@ -23,3 +23,8 @@ export const searchResults = [
         }
     })
 ];
+
+export const searchQuery = [
+  ['repos', 'search', 'query'],
+  query => query  
+];
