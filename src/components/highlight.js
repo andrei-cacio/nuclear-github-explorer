@@ -23,8 +23,8 @@ export default class Highlight extends Component {
         const highlightedText = 
             (
                 <b> 
-                    {matchedPieces.slice(0, -1).map(piece => (
-                        <text> 
+                    {matchedPieces.slice(0, -1).map((piece, index) => (
+                        <text key={index}> 
                             <text>{piece}</text> 
                             <span style={style}> {query} </span> 
                         </text>
