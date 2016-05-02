@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 const style = {
-    'background-color': 'blue',
-    'color': 'white'
+    'backgroundColor': '#BA39F9',
+    'color': 'white',
+    'display': 'inline-block'
 };
 
 export default class Highlight extends Component {
@@ -10,13 +12,28 @@ export default class Highlight extends Component {
         super(props);
     }
 
-    highlightify(str) {
-        return ( <span style={style}> {str} </span> );
-    }
-
     getHighlightedText(query, value) {
         const qRegex = new RegExp(query, 'g');
-        return value.replace(qRegex, this.highlightify(query));
+        const matchedPieces = value.split(qRegex);
+        
+        if (!matchedPieces.length) {
+            return (<b> {this.props.value} </b>);
+        }
+        
+        const highlightedText = 
+            (
+                <b> 
+                    {matchedPieces.slice(0, -1).map(piece => (
+                        <text> 
+                            <text>{piece}</text> 
+                            <span style={style}> {query} </span> 
+                        </text>
+                    ))}
+                    {matchedPieces.pop()} 
+                </b>
+            );
+        
+        return highlightedText;
     }
 
     render() {

@@ -20,18 +20,26 @@ class UIListItem extends Component {
                 rightIcon={<ActionInfo />}
                 secondaryText={this.props.secondText}
             >
-                <Highlight value={this.props.primaryText} />
+                <Highlight value={this.props.primaryText} query={this.props.query} />
             </ListItem>
         )
     }
 }
+
+function mapStateToProps() {
+    return {
+        query: getters.searchQuery
+    }
+}
+
+const ConnectedUIListItem = connect(mapStateToProps)(UIListItem);
 
 const UIList = React.createClass({
     render: function() {
         return (
             <List>
                 { this.props.items.map(item =>
-                    <UIListItem
+                    <ConnectedUIListItem
                         key={item.id}
                         primaryText={item.name}
                         secondText={item.description}

@@ -13,14 +13,14 @@ class Search extends Component {
         super(props);
     }
     
-    handleSearch(event) {
-        const query = event.target.value;
+    handleSearch(e) {
+        const query = e.target.value;
         reactor.dispatch(SEARCHING, query);
     }
-
+    
     render() {
         return (
-            <TextField onChange={this.handleSearch} hintText="Search..." style={style} />
+            <TextField  onChange={this.handleSearch} hintText="Search..." style={style} />
         )
     }
 }
