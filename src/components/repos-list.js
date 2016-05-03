@@ -21,7 +21,7 @@ class Repos extends Component {
     }
 
     render() {
-        const {info, repos, results} = this.props;
+        const {info, repos, results, query} = this.props;
         return (
             <Card>
                 <CardHeader
@@ -33,7 +33,7 @@ class Repos extends Component {
                 <Search/>
                 <CardText>
                      <Provider reactor={reactor}>
-                        <List items={results.size ? results : repos} />
+                        <List items={query.length ? results : repos} />
                     </Provider>
                 </CardText>
             </Card>
@@ -45,7 +45,8 @@ function mapStateToProps() {
     return {
         info: userGetters.userInfo,
         repos: repoGetters.reposList,
-        results: repoGetters.searchResults
+        results: repoGetters.searchResults,
+        query: repoGetters.searchQuery
     }
 }
 
