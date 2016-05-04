@@ -18,3 +18,7 @@ You can checkout it out [here](https://andreicacio.com/demos/nuclear-github/)
 `npm start`
 
 Now you can access [localhost](http://localhost:8080)
+
+# License
+
+The MIT License (MIT)
